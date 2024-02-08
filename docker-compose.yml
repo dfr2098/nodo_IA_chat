@@ -33,6 +33,17 @@ services:
       tennus_net:
         ipv4_address: 172.20.0.3
 
+  mongodb:
+    image: mongo:4.4
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      tennus_net:
+        ipv4_address: 172.20.0.4
+
 networks:
   tennus_net:
     driver: bridge
@@ -43,3 +54,4 @@ networks:
 
 volumes:
   mysql_data:
+  mongodb_data:
